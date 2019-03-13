@@ -1,0 +1,11 @@
+<div class="card" style="width:350px">
+    <img class="card-img-top" src="assets/customers/{{customerdetails.cusId}}.jpg/" alt="Card image" width="100" height="250">
+    <div class="card-body">
+      <h4 class="card-title">{{customerdetails.cusName}}</h4>
+      <ul class="col-md-8">
+        <li ><p><span class="fa fa-star" style="width:50px;"></span>{{customerdetails.cusId}}</p></li>
+        <li><p><span class="fa fa-phone" style="width:50px;"></span>{{customerdetails.cusMob}}</p></li>
+        <li><p><span class="fa fa-money" style="width:50px;"></span>{{customerdetails.cusTotalBalance | currency : 'INR' : 'symbol' }}</p>
+      </li></ul>
+    </div>
+  </div>

@@ -1,0 +1,43 @@
+  <div class="container">
+              <h2 style="text-align:center">Vendor Order Details</h2>
+          <form #form="ngForm" (ngSubmit)="submitForm(form)">
+          <table class="table">
+              <thead class="thead-light">
+              <tr>
+                <th></th>
+                <th>OrderId</th>
+                <th>Food Name</th>
+                <th>Qty</th>
+                <th >Order Price </th>
+                <th ><button type="submit" class="btn btn-primary btn-sm" (click)="sort(key)"><i class="fa fa-sort-asc fa_custom"> </i></button>Order Date </th>
+                <th>Customer Name</th>
+                <th>Wallet Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor= "let v of vendororderdetails| orderBy: key : reverse  | paginate: { itemsPerPage: 6, currentPage: p };">
+                <td><input type="checkbox" [id]="v.orderId" (click)= "clicked(v.orderId)" name="v.orderId" [value]="v.orderId" ></td>
+                <td>{{v.orderId}}</td>
+                <td>{{v.foodName}}</td>
+                <td>{{v.qty}}</td>
+                <td>{{v.orderPrice | currency : 'INR' : 'symbol'}}</td>
+                <td>{{v.orderDate}}</td>
+                <td>{{v.cusName}}</td>
+                <td>{{v.walName}}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+          <label class="switch">
+            <input type="checkbox">
+            <div class="slider round">
+              <option class="on" id="onToggleswitchId" [value] = "REJECTED" (click)= "onTest()" name="status" ngModel #status="ngModel">Rejected</option>
+              <option class="off" id="offToggleswitchId" [value] = "ACCEPTED" (click)="offTest()" name="status" ngModel #status="ngModel" >Accepted</option><!--END-->
+            </div></label>
+
+          <textarea name="comment"  ngModel #comments="ngModel"  form="usrform"></textarea><br>
+  <button type="submit" class="btn btn-primary" >Submit</button>
+</form>
+</div>

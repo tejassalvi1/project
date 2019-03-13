@@ -1,0 +1,29 @@
+<div class="container">
+  <h2 style="text-align:center">Customer Order Details</h2>
+  <table class="table">
+      <thead class="thead-light">
+      <tr>
+        <th>Order ID</th>
+        <th ><button type="submit" class="btn btn-primary btn-sm" (click)="sort(key1)"><i class="fa fa-sort-asc fa_custom"> </i></button>Order Date </th>
+        <th>Vendor Name</th>
+        <th >Order Price </th>
+        <th>Wallet Name</th>
+        <th >Order Status</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let o of customerorderdetails |  orderBy:key1:reverse |paginate: { itemsPerPage: 6, currentPage: p };">
+        <td>{{o.orderId}}</td>
+        <td>{{o.orderDate}}</td>
+        <td>{{o.venName}}</td>
+        <td>{{o.orderPrice | currency : 'INR' : 'symbol'}}</td>
+        <td>{{o.walName}}</td>
+        <td class="order-status" [style.color]="o.orderStatus==='REJECTED' ?'red':'#11FF00' && o.orderStatus==='PENDING' ? '#FFC400':'#278320'">{{o.orderStatus }}</td>
+        <td>{{o.comments}}</td>
+      </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+    
+  </table>
+</div>

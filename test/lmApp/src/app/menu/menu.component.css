@@ -1,0 +1,129 @@
+.margin-left{
+    margin-left: 8px !important;
+}
+
+
+.box {
+    width:200px;height:150px;
+    position:relative;
+    border:1px solid #BBB;
+    background:#eee;
+    float:left;
+    margin:30px
+ }
+ .ribbon {
+
+    position: absolute;
+    right: -5px; top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 100px; height: 100px; 
+    text-align: right;
+ }
+ .ribbon span {
+    font-size: 10px;
+    color: #fff; 
+    text-transform: uppercase; 
+    text-align: center;
+    font-weight: bold; line-height: 20px;
+    transform: rotate(45deg);
+    width: 120px; display: block;
+    background: rgba(177, 5, 5, 0.781);
+    
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px; right: -21px;
+ }
+ .ribbon span::before {
+    content: '';
+    position: absolute; 
+    left: 0px; top: 100%;
+    z-index: -1;
+    border-left: 3px solid #79A70A;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #79A70A;
+ }
+ .ribbon span::after {
+    content: '';
+    position: absolute; 
+    right: 0%; top: 100%;
+    z-index: -1;
+    border-right: 3px solid #79A70A;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #79A70A;
+ }
+ .red span {background: linear-gradient(#F70505 0%, #8F0808 100%);}
+ .red span::before {border-left-color: rgb(83, 10, 10); border-top-color: #8F0808;}
+ .red span::after {border-right-color: #8F0808; border-top-color: #8F0808;}
+ 
+
+
+
+ .ribbonn span {
+    font-size: 10px;
+    color: rgb(230, 233, 69); 
+    text-transform: uppercase; 
+    text-align: center;
+    font-weight: bold; line-height: 20px;
+    width: 130px; display: block;
+   position: relative;
+    top: 5px; right:27px;
+    font-size: 14px;
+}
+
+
+
+
+
+
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.container{
+    width: 2000px;
+    height: 150px;
+    position: relative
+
+}
+
+.ribbonn{
+    position: relative;
+    width:70px;
+    height: 30px;
+    background: #033519;;
+    top: 20px;
+    right: -446px;
+}
+.ribbonn::before{
+    content:"";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid olive;
+    border-top: 5px solid transparent; 
+    border-bottom: 5px solid olive;
+
+}
+.ribbonn::after{
+    content:"";
+    position: absolute;
+    top: 0;
+    right: -1px;
+    border-left: 25px solid transparent;
+
+    border-top: 25px solid transparent; 
+    border-bottom: 25px solid transparent;
+
+}
+
+
+
+

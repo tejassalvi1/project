@@ -1,0 +1,31 @@
+<div class="container">   
+<div class ="row" *ngIf="errorMessage">
+  <span class ="alert alert-danger">{{errorMessage}}</span>
+  </div>
+  <div class = "div1">
+  <form #form="ngForm" (click)="submit(form)" >
+  <div class="text-primary text-center text-uppercase">
+    <h1 > Customer Login
+      </h1><br>
+      </div>
+        <div class="form-group">
+            <label  class ="a" for="exampleInputvendor" >Customer Id</label>
+            <input type="CustomerId" ngModel #custId="ngModel" name="customerId" type="text" required class="form-control" id="CustomerId" aria-describedby="Customer Id" placeholder="Enter your Customer Id">
+        </div>
+        <div class="alert alert-danger" *ngIf="custId.touched && custId.invalid ">
+          <span *ngIf="custId.errors.required">Customer Id should not be empty</span>
+        </div>
+
+        <div class="form-group">
+          <label class ="a" for="InputPassword1">Password</label>
+          <input type="password" ngModel #password="ngModel" name="password" required minlength="5" type="password" class="form-control" id="Password" placeholder="Password">
+        </div>
+        <div class="alert alert-danger" *ngIf="password.touched && password.invalid ">
+          <span *ngIf="password.errors.minlength">{{password.errors.minlength.requiredLength - password.errors.minlength.actualLength }} More Required</span>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Login</button>
+      </form>
+</div> 
+</div>
+
+

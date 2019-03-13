@@ -1,0 +1,40 @@
+
+img{
+  margin-top: -70px;
+  margin-left: -416px;
+}
+
+  .container{
+    width:40%;
+    margin: auto;
+    margin-top:70px;
+
+}
+  
+  #exTab2 h3 {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  }
+  #exTab1 .nav-pills > li > a {
+    border-radius: 0;
+  }
+
+  #exTab3 .nav-pills > li > a {
+    border-radius: 4px 4px 0 0 ;
+  }
+  
+  .full {
+    background:("assets/background/bg1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height:100%;
+}
+
+  
+  
+  
+  
+  

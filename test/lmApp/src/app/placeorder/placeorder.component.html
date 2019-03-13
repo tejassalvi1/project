@@ -1,0 +1,159 @@
+
+  <div class="container">
+    <div class="row">
+      
+        <div class="col-md-7">
+        <form #form="ngForm" (ngSubmit)="submitForm(form)">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Select Food:</label>
+
+              <div class="row">
+                    <div class="col-md-7">
+                      <div class="input-group mb-4">
+                        <input type="text" class="form-control" [(ngModel)]="filterFoodName" placeholder="Enter Food name Eg:- Gobi" name="filterFoodName" >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="card col-md-12">
+                        <div class="card-header bg-primary" 
+                             (click)="visible = !visible" 
+                             style="color:white"> <i [class]="!visible? 'fa fa-plus-circle': 'fa fa-minus-circle'"></i> Available Menus</div>
+                        <div class="card-body" *ngIf="!visible"  >
+                          <div class="row">
+                            <div class="card" style="width: 15rem;" *ngFor="let menu of menus | filtermenu:filterFoodName as result " (click)="handleMenu(menu)" >
+                              <div [class]='menu.foodName === selectedMenu?.foodName?"card-header bg-success fa fa-check-circle":"card-header bg-primary"'> </div>
+                              <div class="card-body">
+                                
+                                  <div class="box">
+                                      <div class="ribbon red"><span>{{menu.vendorName}}</span></div>
+                                      <div class="wrapper">
+                                          <div class="container-ribbon">
+                                                <div class="ribbonn"><span>{{menu.foodPrice | currency : 'INR' : 'symbol'}}</span></div>
+                                          </div>
+                                        </div>
+                                      <img src= "assets/menu/{{menu.foodId}}.jpg/" class="card-img-top">
+                                      </div>
+                                <h5 class="card-title">{{menu.foodName}}</h5>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+
+                  <br>
+                  <div class="row">
+                    <div class="card" style="width: 20rem;" *ngIf="selectedMenu">
+                      <div class="card-body">
+
+                          <div class="box1">
+                              <div class="ribbon red"><span>{{selectedMenu.vendorName}}</span></div>
+                              <div class="wrapper">
+                                  <div class="container">
+                                        <div class="ribbonn"><span>{{selectedMenu.foodPrice | currency : 'INR' : 'symbol'}}</span></div>
+                                  </div>
+                                </div>
+                              <img src= "assets/menu/{{selectedMenu.foodId}}.jpg/" class="card-img-top">
+                              <h5 class="card-title">{{selectedMenu.foodName}}</h5>
+                              </div>
+                       
+                       <div>
+                       <i class="fa fa-minus-circle fa-2x" *ngIf="quantity >=2" (click)="decrement(selectedMenu, quantity-1)" name="quantity" id="Quantity" ></i>
+
+                       <input type="text" [(ngModel)]="quantity" name="quantity" class="form-control" id="Quantity">
+
+                        <i class="fa fa-plus-circle fa-2x" (click)="increment(selectedMenu, quantity+1)" name="quantity" id="Quantity" ></i>
+
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          
+            <div class="form-group">
+              </div>
+              <div class="form-group" *ngIf="validWallets && validWallets.length > 0">
+                <label for="exampleInputPassword87">Wallet</label>
+                <select (change)="selectedwallet(selectedWallet)" ngModel #selectedWallet="ngModel" name="selectedWallet" class="form-control" id="Wallet">
+                    <option *ngFor="let wal of validWallets" [value]="wal.walId">{{wal.modPay}}</option>
+                  </select>
+                  
+              </div>
+              <div *ngIf="validWallets && validWallets.length === 0">
+                <span class="alert alert-danger">You do not have sufficient balance. Your available balance is {{totalWalletBalance | currency : 'INR' : 'symbol'}} </span>
+              </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="table-container">
+                <h4>WALLET INFORMATION</h4>
+                <table class="table" width="100">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Mode Of Pay</th>
+                      <th scope="col">Balance</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                  <tr *ngFor="let wallet of wallets">
+                    <td>{{wallet.modPay}}</td>
+                    <td>{{wallet.walBal | currency : 'INR' : 'symbol'}}</td>
+                  </tr>
+                  <!-- <th> Total Balance</th>
+                  <td>{{totalWalletBalance}}</td>
+                  <tr> Total Bill</tr>
+                  <td>{{totalPrice}}</td>
+                  <th> Available Balance</th>
+                  <td>{{avilBal}}</td> -->
+                </tbody>
+              </table>
+              <div *ngIf="validWallets">
+                  <h5> Total Balance: {{totalWalletBalance | currency : 'INR' : 'symbol'}}</h5>
+                  <h5> Total Bill: {{totalPrice | currency : 'INR' : 'symbol'}}</h5>
+                  <h5>Available Balance: {{avilBal | currency : 'INR' : 'symbol'}}</h5>
+              </div>
+            </div>
+          </div>
+
+          
+        <!-- <div class="col-md-5" *ngIf="validWallets && !dumvalidWallets">
+            <div class="container">
+                <h4>WALLET INFORMATION</h4>
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Mode Of Pay</th>
+                      <th scope="col">Balance</th>
+
+                    </tr>
+                  </thead>
+                <tbody>
+                  <tr *ngFor="let wallet of wallets ">
+                    <td>{{wallet.modPay}}</td>
+                    <td>{{wallet.walBal}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div> -->
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

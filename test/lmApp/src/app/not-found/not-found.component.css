@@ -1,0 +1,24 @@
+body {
+    padding : 10px ;
+    
+  }
+  
+  .container{
+    width:40%;
+    margin: auto;
+    margin-top:70px;
+}
+  
+  #exTab2 h3 {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  }
+  
+  
+  #exTab1 .nav-pills > li > a {
+    border-radius: 0;
+  }
+  #exTab3 .nav-pills > li > a {
+    border-radius: 4px 4px 0 0 ;
+  }

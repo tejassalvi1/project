@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row content">
+
+      <div class="col-sm-3 sidenav">
+          <div>
+                  <img class="irc_mi" src="assets/background/food1.png" alt="Image result for canteen logo" width="250" height="200" style="margin-top: 20px; padding: 20px; " >
+          </div>
+          <div id="exTab3" class="container" >	
+              <ul  class="nav nav-pills">
+                   <h6><li class="active" style="padding: 20px;">
+                      <a href="#section1" class="nav-link active text-dark" routerLinkActive="active" [routerLink]="['details']" data-toggle="tab">View Your Details</a>
+                    </li>
+                    <li  style="padding: 20px;">
+                      <a href="#section2" class="nav-link text-dark" routerLinkActive="active" [routerLink]="['pendingorders']" data-toggle="tab">Pending Order History</a>
+                    </li>
+                    <li style="padding: 20px;">
+                    <a href="#section3" class="nav-link text-dark" routerLinkActive="active" [routerLink]="['allorders']" data-toggle="tab">All Order History</a>
+                    </li>
+                    </h6> 
+                  </ul>
+              </div>
+      </div>
+  
+      <div class="col-sm-9">
+              <div class="well">
+                      <router-outlet></router-outlet>
+              </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  

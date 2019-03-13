@@ -1,0 +1,18 @@
+
+<div class="container">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Mode Of Pay</th>
+          <th scope="col">Balance</th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr *ngFor="let wallet of wallets">
+        <td>{{wallet.modPay}}</td>
+        <td>{{wallet.walBal | currency : 'INR' : 'symbol'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
